@@ -1,0 +1,29 @@
+{
+  "name": "scraper_node",
+  "version": "1.0.0",
+  "description": "Web scraper using puppeter and cheerio \"",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3ndrius/web_scraper.git"
+  },
+  "keywords": [
+    "scraper",
+    "puppeteer",
+    "cheerio",
+    "nodejs"
+  ],
+  "author": "3ndrius",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/3ndrius/web_scraper/issues"
+  },
+  "homepage": "https://github.com/3ndrius/web_scraper#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "isomorphic-fetch": "^2.2.1"
+  }
+}
