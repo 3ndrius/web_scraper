@@ -1,22 +1,15 @@
-const fetch = require("isomorphic-fetch");
-const cheerio = require("cheerio");
-
-const symbols = ["AAPL", "TSLA"];
+const puppeteer = require("puppeteer");
 
 async function app() {
-  for await (symbol of symbols) {
-    const description = await getDescription(symbol);
-    console.log({ symbol, description });
-  }
-}
-
-async function getDescription(symbol) {
-  const response = await fetch(
-    `https://ih.advfn.com/stock-market/NASDAQ/${symbol}/stock-price`
-  );
-  const text = await response.text();
-  const $ = cheerio.load(text);
-  return $("#content > .TableElement:last-child").text().trim();
-}
+  const browser = await puppeteer.launch({headless: false });
+  const page = await browser.newPage();
+  await page.goto('https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch');
+  const text = await page.evaluate(() => { 
+    return document.querySelector('#wikiArticle p').innerText;
+  });
+  await browser.close();
+  console.log("Console:", text)
+  return text;
+ }
 
 app();
