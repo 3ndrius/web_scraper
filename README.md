@@ -7,3 +7,7 @@ Web scraper using cheerio to get data from server rendering page.
 - ` git clone `
 - ` docker build -t myapp . `
 - `docker run -p 8080:8080 myapp`
+
+### Without docker
+
+- `node index.js`
